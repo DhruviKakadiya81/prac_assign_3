@@ -1,0 +1,41 @@
+<style>
+  .formDiv {
+    background-color: bisque;
+    padding-left: 20px;
+    padding-top: 15px;
+  }
+  .SubBtn {
+    background-color: brown;
+    color: white;
+    font-size: 17px;
+  }
+</style>
+<div class="formDiv">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name&nbsp;&nbsp;</label>
+      <input type="text" formControlName="name" id="name" />
+    </div>
+    <br />
+    <div>
+      <label for="Age">Age&nbsp;&nbsp;</label>
+      <input type="text" formControlName="age" id="age" />
+    </div>
+    <br />
+    <div>
+      <label for="Email">Email&nbsp;&nbsp;</label>
+      <input type="text" formControlName="email" id="email" />
+    </div>
+    <br />
+    <div>
+      <label for="Course">Course&nbsp;&nbsp;</label>
+      <input type="text" formControlName="course" id="course" />
+    </div>
+    <br />
+    <button class="SubBtn" type="submit" [disabled]="!userForm.valid">
+      Submit
+    </button>
+  </form>
+  <br />
+  <br />
+</div>

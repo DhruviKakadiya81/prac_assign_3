@@ -1,0 +1,48 @@
+<style>
+  .DataDiv {
+    background-color: bisque;
+    padding-left: 20px;
+    padding-top: 10px;
+  }
+</style>
+<div class="DataDiv">
+  <div class="mixClass">
+    <h2>Display Integer, String, Date</h2>
+    <p>Name : {{ stringData }}</p>
+    <p>Age : {{ integerData }}</p>
+    <p>Date : {{ curDate }}</p>
+  </div>
+  <div>
+    <h2>List Of Array Values</h2>
+    <ul>
+      <li *ngFor="let item of arrayList">{{ item }}</li>
+    </ul>
+  </div>
+  <div class="mixClass">
+    <h2>Array In Combo Box</h2>
+    <select>
+      <option *ngFor="let item of arrayList" [value]="item">{{ item }}</option>
+    </select>
+  </div>
+  <div class="mixClass">
+    <h2>TextBox or TextArea</h2>
+    <form [formGroup]="form">
+      <select formControlName="inputType">
+        <option value="textbox">Text Box</option>
+        <option value="textarea">Text Area</option>
+      </select>
+      <br />
+      <br />
+      <div *ngIf="form.get('inputType')?.value === 'textbox'">
+        <label for="textBox">Text Box:</label>
+        <input type="text" id="textBox" formControlName="textValue" />
+      </div>
+      <div *ngIf="form.get('inputType')?.value === 'textarea'">
+        <label for="textArea">Text Area:</label>
+        <textarea id="textArea" formControlName="textValue"></textarea>
+      </div>
+      <br />
+      <br />
+    </form>
+  </div>
+</div>
